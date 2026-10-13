@@ -1,0 +1,110 @@
+body {
+    background-color: #D3D2C7;
+    font-family: 'Times New Roman', Times, serif;
+    height: auto;
+}
+
+h2 {
+    font-size: 1.3em
+}
+
+/* Across Pages CSS */
+.header_container {
+    text-align: center;
+    color: darkgreen;
+}
+
+#copyright {
+    font-weight: bolder;
+}
+
+/* Navigation CSS */
+
+/* so navbar takes up length of page */
+.navflex {
+    width: 100%;
+}
+
+.navflex a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 0.5em 1em;
+}
+
+.navflex ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-weight: bold;
+    overflow: hidden;
+    border: 1px solid;
+    background-color: #779341;
+}
+
+.navflex li {
+    flex: 3;
+    text-align: center;
+    border: 1px solid;
+}
+
+.navflex li.active {
+    background-color: darkgreen;
+}
+
+.navflex li:hover {
+    background-color: darkgreen;
+}
+
+.nav_collapse {
+    background-color: #779341;
+    width: auto;
+    display: none;
+    border: 1px solid;
+}
+
+/* Media Queries */
+/* Mobile/Smart Phones */
+@media screen and (max-width:480px){
+
+    .header_container{
+        text-align: center;
+    }
+
+    /* hides navbar on smaller screen */
+    .navflex {
+        display: none;
+    }
+
+    /* reveals navbar */
+    .navflex.show {
+        display: block;
+    }
+
+    /* changing the nav bar so its contents are spread vertical instead of horizontally */
+    .navflex ul {
+        flex-direction: column;
+    }
+    
+    .navflex li {
+        text-align: left;
+    }
+
+    /* navbar is only collapsable on phone screens*/
+    .nav_collapse {
+        display: block;
+    }
+}
+
+/* average IPad screen size */
+@media screen and (min-width: 768px) and (max-width:820px){
+
+    .header_container{
+        text-align: center;
+    }
+    
+}
