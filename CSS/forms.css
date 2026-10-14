@@ -1,0 +1,36 @@
+/* Giving each section of the calc form consistent formatting */
+.transport_section,
+.home_section,
+.food_section,
+.lifestyle_section {
+    background-color: #E5EBDD;
+    border: 1px solid #C5CEC0;
+    margin: 10px;
+    padding: 10px;
+}
+
+#contactForm,
+#questionnaireForm {
+    background-color: #FFFFFF;
+    border: 1px solid black;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Displays 2 sections side by side */
+.form_sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* Media Queries */
+/* Mobile/Smart Phones */
+@media screen and (max-width:480px){
+
+    /* changing display type when on smaller screen */
+    .form_sections {
+        display: block;
+    }
+    
+}

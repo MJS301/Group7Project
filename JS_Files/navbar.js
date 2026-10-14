@@ -1,5 +1,5 @@
-let collapse = document.querySelector(".collapse_img");
-let nav = document.querySelector(".navflex")
+let collapse = document.querySelector(".nav_collapse");
+let nav = document.querySelector("#main_nav")
 
 /* toggles the Navbar when user clicks on burger-bar image */
 function collapseNav() {
