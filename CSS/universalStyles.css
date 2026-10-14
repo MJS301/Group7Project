@@ -67,6 +67,13 @@ h2 {
     border: 1px solid;
 }
 
+.instaiconimg {
+    height: 20px;          
+    width: auto;
+    vertical-align: middle; 
+    margin-left: 8px;
+}
+
 /* Media Queries */
 /* Mobile/Smart Phones */
 @media screen and (max-width:480px){
