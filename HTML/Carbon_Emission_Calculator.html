@@ -3,12 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>COZero</title>
+        <title>Carbon Emission Calculator</title>
         <!-- Linking in stylesheets -->
         <link rel="stylesheet" href="/CSS/universalStyles.css">
         <link rel="stylesheet" href="/CSS/forms.css">
         <!-- JS file which won't load after rest of page has that customises the navbar -->
         <script defer src="/JS_Files/navbar.js"></script>
+        <script defer src="/JS_Files/emission_calc.js"></script>
     </head>
     <body>
         <header>
@@ -36,11 +37,15 @@
             </section>
         </header>
         <main>
-            <div class="quiz_info"></div>
-                <p> Find out how much you do affects the environment </p>
+            <div id="quizInfo">
+                <h2> Want to Calculate Your Carbon Footprint? </h2>
+                <p> 
+                    Look no further! This questionnaire will help you figure out how your daily activities affect
+                    your footprint. 
+                </p>
             </div>
             <div id="questionnaireSection">
-                <form id="questionnaireForm">
+                <form id="questionnaireForm" action="#">
                     <div class="form_sections">
                         <section class="transport_section">
                             <fieldset>

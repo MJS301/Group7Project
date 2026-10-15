@@ -5,8 +5,10 @@
 .lifestyle_section {
     background-color: #E5EBDD;
     border: 1px solid #C5CEC0;
-    margin: 10px;
-    padding: 10px;
+    padding: 20px;
+    height: 100%;
+    /* Make sure padding doesn't break the width*/
+    box-sizing: border-box;
 }
 
 #contactForm,
@@ -17,22 +19,20 @@
     border-radius: 8px;
 }
 
-#quiz_info {
+#quizInfo,
+#contactInfo {
     text-align: center;
 }
 
 #questionnaireSection legend {
     font-size: 15px;
+    font-weight: bold;
 }
 
 #contactFormSection legend {
     border-radius: 1em;
     padding: 0.5em;
     margin-top: 1em;
-}
-
-#contactInfo {
-    text-align: center;
 }
 
 #contactFormSection {
@@ -68,7 +68,10 @@
 .form_sections {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    /* Side-by-side elements have identical height */
+    align-items: stretch;
+    gap: 20px;
+    margin: 10px 0;
 }
 
 .contact_inputs {
