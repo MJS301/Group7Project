@@ -29,6 +29,23 @@
     font-weight: bold;
 }
 
+.result_container {
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-top: 15px;
+    background-color: #FFFFFF;
+}
+
+.result_heading {
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.total {
+    font-size: 25px;
+}
+
 #contactFormSection legend {
     border-radius: 1em;
     padding: 0.5em;

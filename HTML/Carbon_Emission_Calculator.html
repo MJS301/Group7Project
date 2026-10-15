@@ -52,33 +52,33 @@
                                 <legend>Transport</legend>
                                 <hr>
                                 <h3> How Far Did You Travel by Car in the Last Week? </h3>
-                                <input type="radio" id="none" name="car_travel" value="0KM">
+                                <input type="radio" id="car_none" name="car_travel" value="0">
                                 <label for="none">I didn't</label><br>
-                                <input type="radio" id="50km" name="car_travel" value="50KM">
+                                <input type="radio" id="car_low" name="car_travel" value="25">
                                 <label for="50km">Less than 50 km</label><br>
-                                <input type="radio" id="50-150km" name="car_travel" value="50-100KM">
+                                <input type="radio" id="car_mid" name="car_travel" value="100">
                                 <label for="50-100km">Between 50 and 100 km</label><br>
-                                <input type="radio" id="150km" name="car_travel" value="150KM">
+                                <input type="radio" id="car_high" name="car_travel" value="200">
                                 <label for="150km">Over 150km</label>
 
                                 <h3> How Far Did You Travel by Public Transport in the Last Year? </h3>
-                                <input type="radio" id="none" name="public_transport" value="0KM">
+                                <input type="radio" id="transport_none" name="public_transport" value="0">
                                 <label for="none">I didn't</label><br>
-                                <input type="radio" id="50km" name="public_transport" value="50KM">
+                                <input type="radio" id="transport_low" name="public_transport" value="25">
                                 <label for="50km">Less than 50 km</label><br>
-                                <input type="radio" id="50-150km" name="public_transport" value="50-100KM">
+                                <input type="radio" id="transport_mid" name="public_transport" value="100">
                                 <label for="50-100km">Between 50 and 100 km</label><br>
-                                <input type="radio" id="150km" name="public_transport" value="150KM">
+                                <input type="radio" id="transport_high" name="public_transport" value="200">
                                 <label for="150km">Over 150km</label>
 
                                 <h3> How Often Did You Travel by Plane in the Last Year? </h3>
-                                <input type="radio" id="none" name="plane_travel" value="0">
+                                <input type="radio" id="plane_none" name="plane_travel" value="0">
                                 <label for="none">None</label><br>
-                                <input type="radio" id="1/2short" name="plane_travel" value="1/2">
+                                <input type="radio" id="plane_short_few" name="plane_travel" value="1/2">
                                 <label for="1/2short">1 or 2 Short Flights</label><br>
-                                <input type="radio" id="3short" name="plane_travel" value="3">
+                                <input type="radio" id="plane_short_many" name="plane_travel" value="3">
                                 <label for="3short">3 or More Short</label><br>
-                                <input type="radio" id="long" name="plane_travel" value="longHaul">
+                                <input type="radio" id="plane_long" name="plane_travel" value="longHaul">
                                 <label for="long">Any Long-haul</label>
                             </fieldset>
                         </section>
@@ -93,20 +93,24 @@
                                 <label for="electricity">Electricity</label><br>
                                 <input type="radio" id="other" name="heating_type" value="Other">
                                 <label for="other">Other</label><br>
-                                <h3> How much Energy do You Use per Month? (Gas Heating) </h3>
-                                <input type="radio" id="low" name="energy_usage" value="Low">
-                                <label for="low">Low (Around 500 kWh) </label><br>
-                                <input type="radio" id="medium" name="energy_usage" value="Medium">
-                                <label for="medium">Medium (Around 860 kWh)</label><br>
-                                <input type="radio" id="high" name="energy_usage" value="High">
-                                <label for="high">High (Around 1250 kWh) </label><br>
-                                <h3> How much Energy do You Use per Month? (Electric Heating) </h3>
-                                <input type="radio" id="low" name="energy_usage" value="Low">
-                                <label for="low">Low (Around 133 kWh) </label><br>
-                                <input type="radio" id="medium" name="energy_usage" value="Medium">
-                                <label for="medium">Medium (Around 216 kWh)</label><br>
-                                <input type="radio" id="high" name="energy_usage" value="High">
-                                <label for="high">High (Around 326 kWh) </label><br>
+                                <div id="gasHeating" style="display: none;">
+                                    <h3> How much Energy do You Use per Month? (Gas Heating) </h3>
+                                    <input type="radio" id="low" name="energy_usage" value="Low">
+                                    <label for="low">Low (Around 500 kWh) </label><br>
+                                    <input type="radio" id="medium" name="energy_usage" value="Medium">
+                                    <label for="medium">Medium (Around 860 kWh)</label><br>
+                                    <input type="radio" id="high" name="energy_usage" value="High">
+                                    <label for="high">High (Around 1250 kWh) </label><br>
+                                </div>
+                                <div id="electricHeating" style="display: none;">
+                                    <h3> How much Energy do You Use per Month? (Electric Heating) </h3>
+                                    <input type="radio" id="low" name="energy_usage" value="Low">
+                                    <label for="low">Low (Around 133 kWh) </label><br>
+                                    <input type="radio" id="medium" name="energy_usage" value="Medium">
+                                    <label for="medium">Medium (Around 216 kWh)</label><br>
+                                    <input type="radio" id="high" name="energy_usage" value="High">
+                                    <label for="high">High (Around 326 kWh) </label><br>
+                                </div>
                             </fieldset>
                         </section>
                     </div>
@@ -149,6 +153,8 @@
                     </div>
                     <input type="submit" value="Calculate">
                 </form>
+            </div>
+            <div id="calcResult">
             </div>
         </main>
         <footer>
