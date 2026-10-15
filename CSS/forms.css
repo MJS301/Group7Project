@@ -31,6 +31,10 @@
     margin-top: 1em;
 }
 
+#contactInfo {
+    text-align: center;
+}
+
 #contactFormSection {
     display: flex;
     flex-direction: column;
@@ -74,6 +78,16 @@
     gap: 1em ;
 }
 
+/* Forces the message block to span the full width and stack vertically */
+.message_group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin-top: 0.5em;
+}
+
+
 /* Styling submit buttons for forms */
 input[type=submit] {
   background-color: #4CAF50;
@@ -82,6 +96,7 @@ input[type=submit] {
   border: none;
   border-radius: 4px;
   margin: 5px;
+  margin-top: 10px;
 }
 
 input[type=submit]:hover {
