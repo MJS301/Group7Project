@@ -24,6 +24,64 @@
     gap: 15px;
 }
 
+/* Styling for activity form */
+/* activity container */
+.activityContainer{
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 0px;
+    border-style: solid;
+    border-width: 1px;
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* activity container heading */
+.activityContainer h2{
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+/* activity form styling */
+.activityForm {
+    margin-bottom: 20px;
+}
+
+/* activity form labels and inputs */
+.activityForm label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* activity form inputs */
+.activityForm input {
+    width: 93%;
+    padding: 14px;
+    border: 1px solid #000000;
+    border-radius: 0px;
+    font-size: 16px;
+}
+
+/* activity button styling */
+.activityButton{
+    width: 100%;
+    padding: 14px;
+    background: #779341 ;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* activity button hover state */
+.activityButton:hover{
+    text-decoration: underline;
+}
+
+
 /* Media Queries */
 /* Mobile/Smart Phones */
 @media screen and (max-width:480px){
@@ -33,4 +91,10 @@
         display: block;
     }
     
+/* activity resizing for smaller screens */
+@media (max-width: 700px){
+    .activityContainer{
+        max-width: 40%;
+    }
+}
 }

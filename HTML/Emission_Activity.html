@@ -6,8 +6,10 @@
         <title>Emission Activity</title>
         <!-- Linking in stylesheets -->
         <link rel="stylesheet" href="/CSS/universalStyles.css">
+        <link rel="stylesheet" href="/CSS/forms.css">
         <!-- JS file which won't load after rest of page has that customises the navbar -->
         <script defer src="/JS_Files/navbar.js"></script>
+        <script src="/JS_Files/emission_activity.js"></script>
     </head>
     <body>
         <header>
@@ -35,7 +37,19 @@
             </section>
         </header>
         <main>
-          
+          <section>
+            <!-- this is the container for the activity form -->
+            <div class="activityContainer">
+                <h2>Emission Activity</h2>
+                <form>
+                    <div class="activityForm">
+                        <label for="cardName">Emission Amount</label>
+                        <input type="text" id="cardName" placeholder="Amount" required>
+                    </div>
+                    <button type="button" class="activityButton" onclick="addEmissionActivity()">Add emission amount</button>
+                </form>
+            </div>     
+    </section>
         </main>
         <footer>
             <hr>
