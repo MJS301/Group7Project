@@ -5,10 +5,13 @@
 .lifestyle_section {
     background-color: #E5EBDD;
     border: 1px solid #C5CEC0;
-    margin: 10px;
-    padding: 10px;
+    padding: 20px;
+    height: 100%;
+    /* Make sure padding doesn't break the width*/
+    box-sizing: border-box;
 }
 
+/* Giving the forms consistant formatting */
 #contactForm,
 #questionnaireForm {
     background-color: #FFFFFF;
@@ -17,11 +20,134 @@
     border-radius: 8px;
 }
 
+/* Aligning the text in info parts of pages so it appears centered */
+#quizInfo,
+#contactInfo {
+    text-align: center;
+}
+
+#questionnaireSection legend {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* Modifying the size of the radio buttons to make them easier to select*/
+#questionnaireForm input[type=radio] {
+    height: 20px;
+    width: 20px;
+}
+
+#questionnaireForm input[type=submit] {
+    width: 30%;
+}
+
+.result_container {
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-top: 15px;
+    background-color: #FFFFFF;
+}
+
+.result_heading {
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.total {
+    font-size: 25px;
+}
+
+#contactFormSection legend {
+    border-radius: 1em;
+    padding: 0.5em;
+    margin-top: 1em;
+}
+
+#contactFormSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contactFormSection legend {
+    border-radius: 1em;
+    padding: 0.5em;
+    margin-top: 1em;
+}
+
+#contactFormSection fieldset {
+    background-color: #E5EBDD;
+    border: 0.125em solid black;
+    border-radius: 0.1em;
+    margin-bottom: 0.5em;
+}
+
+/* styling the success message on contact page */
+.success_message {
+    border: 1px solid black;
+    width: 48%;
+    text-align: center;
+    background-color: #E5EBDD;
+    border-radius: 8px;
+    margin: 5px;
+}
+
 /* Displays 2 sections side by side */
 .form_sections {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    /* Side-by-side elements have identical height */
+    align-items: stretch;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+.contact_inputs {
+    display: flex;
+    flex-wrap: wrap;
+    /* adds a margin between each child element of form_row class */
+    gap: 1em ;
+}
+
+/* Forces the message block to span the full width and stack vertically */
+.message_group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin-top: 0.5em;
+}
+
+
+/* Styling submit buttons for forms */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 22px 30px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+/* changing button colour when user floats over button */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* modifying the textboxes */
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
 }
 
 /* Media Queries */
@@ -32,5 +158,9 @@
     .form_sections {
         display: block;
     }
-    
+
+    #contactForm,
+    .success_message {
+        width: 80%;
+    }
 }
