@@ -24,6 +24,57 @@
     gap: 15px;
 }
 
+/* Goals Container */
+.goals-container {
+    max-width: 700px;
+    margin: 35px;
+    padding: 10px;
+    background-color: #FFFFFF;
+}
+
+/*Form and Goal Creation*/
+
+.create-goal, 
+.personal-goals {
+    padding: 20px;
+    background-color: #E5EBDD;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+#goal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#goal-form label {
+    display: block;
+    margin-top: 6px;
+    font-weight: bold;
+}
+
+#goal-title,
+#goal-category,
+#goal-description {
+    display: block;
+    width: 90%;
+    padding: 8px;
+    border: 1px;
+    border-radius: 4px;
+}
+
+#goal-form button {
+    display: block;
+    margin: 15px;
+    padding: 12px 28px;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
 /* Media Queries */
 /* Mobile/Smart Phones */
 @media screen and (max-width:480px){
