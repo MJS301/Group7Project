@@ -39,7 +39,36 @@
             </section>
         </header>
         <main>
-          
+            <section class="create-goal">
+                <h2>Create a Goal</h2>
+                <p>Set a target you'd like to achieve</p>
+
+                <form id="goal-form">
+                    <label for="goal-title">Goal Title</label>
+
+                    <input type="text" id="goal-title" name="goal-title" placeholder="i.e. Cycle or Walk more than driving" maxlength="60" required>
+                    
+                    <label for="goal-category">Category</label>
+                    <select id="goal-category" required>
+                        <option value="">Select a Category</option>
+                        <option value="Home">Home</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Food">Food</option>
+                        <option value="Lifestyle">Lifestyle</option>
+                    </select>
+
+                    <label for="goal-description">Describe (Describe your goal)</label>
+                    <textarea id="goal-description" placeholder="Describe your goal" maxlength="200" rows="3"></textarea>
+
+                    <button type="submit">Create Your Goal</button>
+                    <p id="form-result" role="status"></p>
+                </form>
+            </section>
+
+            <section class="personal-goals">
+                <h2>My Goals</h2>
+            </section>
+
         </main>
         <footer>
             <hr>
