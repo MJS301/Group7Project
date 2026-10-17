@@ -150,6 +150,82 @@ textarea {
   resize: none;
 }
 
+/* Goals Container */
+.goals-container {
+    max-width: 700px;
+    margin: 35px;
+    padding: 10px;
+    background-color: #FFFFFF;
+}
+
+/*Form and Goal Creation*/
+
+.create-goal, 
+.personal-goals {
+    padding: 20px;
+    background-color: #E5EBDD;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+#goal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#goal-form label {
+    display: block;
+    margin-top: 6px;
+    font-weight: bold;
+}
+
+#goal-title,
+#goal-category,
+#goal-description {
+    display: block;
+    width: 90%;
+    padding: 8px;
+    border: 1px;
+    border-radius: 4px;
+}
+
+#goal-form button {
+    display: block;
+    margin: 15px;
+    padding: 12px 28px;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Goals JS CSS */
+.goal-card {
+    padding: 10px;
+    background-color: bisque;
+    border: 1px solid;
+    border-radius: 6px;
+}
+
+.goal-card h3 {
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+}
+
+.goal-category {
+    color: black;
+    font-weight: bold;
+    margin: 0 0 8px;
+}
+
+.goal-description {
+    color: black;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 /* Media Queries */
 /* Mobile/Smart Phones */
 @media screen and (max-width:480px){
