@@ -153,9 +153,10 @@ textarea {
 /* Goals Container */
 .goals-container {
     max-width: 700px;
-    margin: 35px;
+    margin: 0 auto;
     padding: 10px;
     background-color: #FFFFFF;
+    
 }
 
 /*Form and Goal Creation*/

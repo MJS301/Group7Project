@@ -9,6 +9,18 @@ h2 {
     font-size: 1.3em
 }
 
+#links {
+    text-align: center;
+}
+
+#links a {
+    border: 1px solid black;
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+}
+
 /* Across Pages CSS */
 .header_container {
     text-align: center;
@@ -179,8 +191,8 @@ h2 {
 }
 
 .naturepic {
-    height: 200px;
+    height: 400px;
     width: auto;
     vertical-align: middle;
-    margin-left: 8px;
+    margin: 10px;
 }
