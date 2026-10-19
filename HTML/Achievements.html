@@ -6,8 +6,10 @@
         <title>Achievements</title>
         <!-- Linking in stylesheets -->
         <link rel="stylesheet" href="/CSS/universalStyles.css">
+        <link rel="stylesheet" href="/CSS/achievements.css">
         <!-- JS file which won't load after rest of page has that customises the navbar -->
         <script defer src="/JS_Files/navbar.js"></script>
+        <script defer src="/JS_Files/achievements.js"></script>
     </head>
     <body>
         <header>
@@ -43,7 +45,20 @@
 
         </header>
         <main>
-          
+            <div id="achievementsInfo">
+                <p>Earn badges and achievements by logging and cutting your emissions.</p>
+                <p id="pointsSummary"></p>
+            </div>
+
+            <section class="achievement_section" aria-labelledby="earnedHeading">
+                <h2 id="earnedHeading">Your Achievements</h2>
+                <ul id="earnedList" class="achievement_grid"></ul>
+            </section>
+
+            <section class="achievement_section" aria-labelledby="nextHeading">
+                <h2 id="nextHeading">Next Goals</h2>
+                <ul id="nextList" class="achievement_grid"></ul>
+            </section>
         </main>
         <footer>
             <hr>
