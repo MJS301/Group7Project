@@ -3,23 +3,28 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Contact Us</title>
+        <title>Login</title>
         <!-- Linking in stylesheets -->
         <link rel="stylesheet" href="/CSS/universalStyles.css">
+        <link rel="stylesheet" href="/CSS/forms.css">
         <!-- JS file which won't load after rest of page has that customises the navbar -->
         <script defer src="/JS_Files/navbar.js"></script>
     </head>
     <body>
         <header>
-            <!-- only displayed on phone screens  -->
-            <!-- allows user to toggle navbar  -->
-            <div class="nav_collapse">
-                <img src="/Images/burger-bar.png" alt="burger-bar" class="collapse_img">
+            <div class="top_bar">
+                <button class="nav_collapse" aria-label="Open menu" aria-expanded="false" aria-controls="main_nav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <a href="index.html" class="brand">COZERO</a>
             </div>
-            <!-- navbar which allows users to navigate pages -->
-            <nav class="navflex">
+            <!--Navbar-->
+            <nav class="navflex" id="main_nav">
+
                 <ul>
-                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="Carbon_Emission_Calculator.html">Carbon Emission Calculator</a></li>
                     <li><a href="Emission_Activity.html">Emission Activity</a></li>
                     <li><a href="Leaderboard.html">Leaderboard</a></li>
@@ -29,13 +34,16 @@
                     <li><a href="Emissions_Info.html">Emissions Info</a></li>
                     <li><a href="Contact_Us.html">Contact Us</a></li>
                 </ul>
+
             </nav>
+            
             <section class="header_container">
-                <h1> Login </h1>
+                <h1>Login</h1>
             </section>
-        </header> 
+        </header>
+
         <main>
-          
+
         </main>
         <footer>
             <hr>
