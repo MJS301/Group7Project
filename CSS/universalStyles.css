@@ -15,10 +15,25 @@ h2 {
 
 #links a {
     border: 1px solid black;
+    border-radius: 10px;
     display: inline-block;
+    margin: 10px;
     padding: 12px 20px;
+}
+
+.logButton {
     background-color: #4CAF50;
     color: white;
+}
+
+.registerButton {
+    background-color: white;
+    color: black;
+}
+
+.emissionButton {
+    background-color: black;
+    color: aqua;
 }
 
 /* Across Pages CSS */
