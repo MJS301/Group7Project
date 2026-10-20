@@ -36,6 +36,36 @@ h2 {
     color: aqua;
 }
 
+/* Emission Info Page Styling */
+.emission_info_container {
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: white;
+    margin: 5px;
+}
+
+.footprint_info,
+.solutions_info,
+.faq {
+    border: 1px, solid, black;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 10px;
+    background-color: #E5EBDD;
+}
+
+.footprint_info_content,
+.solutions_info_content,
+.faq_content {
+    display: none;
+}
+
+.footprint_info_content.show,
+.solutions_info_content.show,
+.faq_content.show {
+    display: block;
+}
+
 /* Image styling */
 .instaiconimg {
     height: 20px;
