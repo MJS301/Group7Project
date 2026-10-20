@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS Category (
 
 CREATE TABLE IF NOT EXISTS Activity (
     activity_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    date TEXT NOT NULL,
+    activity_date DATE NOT NULL,
     quantity REAL NOT NULL,
     co2_kg_emitted REAL NOT NULL,
     category_id INTEGER NOT NULL,
