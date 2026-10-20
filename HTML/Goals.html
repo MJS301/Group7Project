@@ -6,18 +6,25 @@
         <title>Goals</title>
         <!-- Linking in stylesheets -->
         <link rel="stylesheet" href="/CSS/universalStyles.css">
+        <link rel="stylesheet" href="/CSS/forms.css">
         <!-- JS file which won't load after rest of page has that customises the navbar -->
         <script defer src="/JS_Files/navbar.js"></script>
+        <script defer src="/JS_Files/goals.js"></script>
     </head>
     <body>
         <header>
-            <!-- only displayed on phone screens  -->
-            <!-- allows user to toggle navbar  -->
-            <div class="nav_collapse">
-                <img src="/Images/burger-bar.png" alt="burger-bar" class="collapse_img">
+
+            <div class="top_bar">
+                <button class="nav_collapse" aria-label="Open menu" aria-expanded="false" aria-controls="main_nav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <a href="Home.html" class="brand">COZERO</a>
             </div>
-            <!-- navbar which allows users to navigate pages -->
-            <nav class="navflex">
+            <!--Navbar-->
+            <nav class="navflex" id="main_nav">
+
                 <ul>
                     <li><a href="Home.html">Home</a></li>
                     <li><a href="Carbon_Emission_Calculator.html">Carbon Emission Calculator</a></li>
@@ -29,13 +36,52 @@
                     <li><a href="Emissions_Info.html">Emissions Info</a></li>
                     <li><a href="Contact_Us.html">Contact Us</a></li>
                 </ul>
+
             </nav>
+            
             <section class="header_container">
-                <h1> Goals </h1>
+                <h1></h1>
             </section>
+
         </header>
         <main>
-          
+            <div class="goals-container">
+            <section class="create-goal">
+                <h2>Create a Goal</h2>
+                <p>Set a target you'd like to achieve</p>
+
+                <form id="goal-form">
+                    <label for="goal-title">Goal Title</label>
+
+                    <input type="text" id="goal-title" name="goal-title" placeholder="i.e. Cycle or Walk more than driving" maxlength="60" required>
+                
+                    <label for="goal-category">Category</label>
+                    <select id="goal-category" required>
+                        <option value="">Select a Category</option>
+                        <option value="Home">Home</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Food">Food</option>
+                        <option value="Lifestyle">Lifestyle</option>
+                    </select>
+
+                    <label for="goal-description">Describe (Describe your goal)</label>
+                    <textarea id="goal-description" placeholder="Describe your goal" maxlength="200" rows="3"></textarea>
+
+                    <button type="submit">Create Your Goal</button>
+                    <p id="form-result" role="status"></p>
+                </form>
+            </section>
+
+            <section class="personal-goals">
+                <h2>My Goals</h2>
+
+                <div id="goals-list">
+                    <p class="empty-message">
+                        You have not created any goals yet
+                    </p>
+                </div>
+            </section>
+            </div>
         </main>
         <footer>
             <hr>

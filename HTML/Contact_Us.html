@@ -13,13 +13,18 @@
     </head>
     <body>
         <header>
-            <!-- only displayed on phone screens  -->
-            <!-- allows user to toggle navbar  -->
-            <div class="nav_collapse">
-                <img src="/Images/burger-bar.png" alt="burger-bar" class="collapse_img">
+
+            <div class="top_bar">
+                <button class="nav_collapse" aria-label="Open menu" aria-expanded="false" aria-controls="main_nav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <a href="Home.html" class="brand">COZERO</a>
             </div>
-            <!-- navbar which allows users to navigate pages -->
-            <nav class="navflex">
+            <!--Navbar-->
+            <nav class="navflex" id="main_nav">
+
                 <ul>
                     <li><a href="Home.html">Home</a></li>
                     <li><a href="Carbon_Emission_Calculator.html">Carbon Emission Calculator</a></li>
@@ -31,33 +36,57 @@
                     <li><a href="Emissions_Info.html">Emissions Info</a></li>
                     <li class="active"><a href="Contact_Us.html">Contact Us</a></li>
                 </ul>
+
             </nav>
+            
             <section class="header_container">
-                <h1> Contact Us </h1>
+                <h1>Contact Us</h1>
             </section>
+
         </header>
         <main>
-            <div class="contact_form">
-                <h2> Send us a Message! </h2>
+            <!-- Seperating the information part of the page into a seperate div -->
+            <div id="contactInfo">
+                <h2> Are you finding any issues with using the application or have any questions? </h2>
+                <p> Fill out the form below and we'll get in touch </p>
+            </div>
+            <!-- Seperating the form part of the page into a seperate div -->
+            <div id="contactFormSection">
+                <form id="contactForm" action="#">
+                    <!-- fieldsets and legends allow screenreaders to tell the user what the infornation relates to-->
+                    <fieldset>
+                        <legend>Fill out Form Below to Get in Contact</legend>
+                        <!-- putting inputs in a seperate div -->
+                        <div class="contact_inputs">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                            <br>
 
-                <form id="contactForm">
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email" placeholder="Your email" required>
+                            <br>
 
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Your name" required>
-
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email" placeholder="Your email" required>
-
-                    <label for="message">Enter your questions/issues:</label>
-                    <textarea id="message" name="message" placeholder="Write a message" style="height:200px" required></textarea>
-
-                    <input type="submit" value="Submit">
-
+                            <div class="message_group">
+                                <label for="message">Enter your questions/issues:</label>
+                                <textarea id="message" name="message" placeholder="Write a message" style="height:200px" required></textarea>
+                            </div>
+                        </div>
+                        <input type="submit" value="Send Message">
+                    </fieldset>
                 </form>
 
-                <p id="successMessage" style="display: none;">
-                    Thank you for your message
-                </p>
+                <!-- Message only appears upon successful submission of form -->
+                <div id="successMessage" class="success_message" style="display: none">
+                    <h3>
+                        Thank you for your message, a member of the team will get back to you soon.
+                    </h3>
+                </div>
+                <!-- Message only appears when message can't be sent -->
+                <div id="errorMessage" class="error_message" style="display: none">
+                    <h3>
+                        Sorry, you're message could not be sent. Try again later.
+                    </h3>
+                </div>
             </div>
         </main>
         <footer>

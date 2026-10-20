@@ -3,22 +3,28 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>COZero</title>
+        <title>Carbon Emission Calculator</title>
         <!-- Linking in stylesheets -->
         <link rel="stylesheet" href="/CSS/universalStyles.css">
         <link rel="stylesheet" href="/CSS/forms.css">
         <!-- JS file which won't load after rest of page has that customises the navbar -->
         <script defer src="/JS_Files/navbar.js"></script>
+        <script defer src="/JS_Files/emission_calc.js"></script>
     </head>
     <body>
         <header>
-            <!-- only displayed on phone screens  -->
-            <!-- allows user to toggle navbar  -->
-            <div class="nav_collapse">
-                <img src="/Images/burger-bar.png" alt="burger-bar" class="collapse_img">
+
+            <div class="top_bar">
+                <button class="nav_collapse" aria-label="Open menu" aria-expanded="false" aria-controls="main_nav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <a href="Home.html" class="brand">COZERO</a>
             </div>
-            <!-- navbar which allows users to navigate pages -->
-            <nav class="navflex">
+            <!--Navbar-->
+            <nav class="navflex" id="main_nav">
+
                 <ul>
                     <li><a href="Home.html">Home</a></li>
                     <li class="active"><a href="Carbon_Emission_Calculator.html">Carbon Emission Calculator</a></li>
@@ -30,106 +36,134 @@
                     <li><a href="Emissions_Info.html">Emissions Info</a></li>
                     <li><a href="Contact_Us.html">Contact Us</a></li>
                 </ul>
+
             </nav>
+            
             <section class="header_container">
-                <h1> Emissions Calculator Quiz </h1>
+                <h1></h1>
             </section>
+
         </header>
         <main>
-            <p> Find out how much you do affects the environment </p>
-            <form id="questionnaireForm">
-                <div class="form_sections">
-                    <section class="transport_section">
-                        <h2> Transport </h2>
-                        <h3> How Far Did You Travel by Car in the Last Week? </h3>
-                        <input type="radio" id="none" name="car_travel" value="0KM">
-                        <label for="none">I didn't</label><br>
-                        <input type="radio" id="50km" name="car_travel" value="50KM">
-                        <label for="50km">Less than 50 km</label><br>
-                        <input type="radio" id="50-150km" name="car_travel" value="50-100KM">
-                        <label for="50-100km">Between 50 and 100 km</label><br>
-                        <input type="radio" id="150km" name="car_travel" value="150KM">
-                        <label for="150km">Over 150km</label>
+            <div id="quizInfo">
+                <h2> Want to Calculate Your Carbon Footprint? </h2>
+                <p> 
+                    Look no further! This questionnaire will help you figure out how your daily activities affect
+                    your footprint. 
+                </p>
+            </div>
+            <div id="questionnaireSection">
+                <form id="questionnaireForm" action="#">
+                    <div class="form_sections">
+                        <section class="transport_section">
+                            <fieldset>
+                                <legend>Transport</legend>
+                                <hr>
+                                <h3> How Far Did You Travel by Car in the Last Week? </h3>
+                                <input type="radio" id="car_none" name="car_travel" value="0" required>
+                                <label for="none">I didn't</label><br>
+                                <input type="radio" id="car_low" name="car_travel" value="25">
+                                <label for="50km">Less than 50 km</label><br>
+                                <input type="radio" id="car_mid" name="car_travel" value="100">
+                                <label for="50-100km">Between 50 and 100 km</label><br>
+                                <input type="radio" id="car_high" name="car_travel" value="200">
+                                <label for="150km">Over 150km</label>
 
-                        <h3> How Far Did You Travel by Public Transport in the Last Year? </h3>
-                        <input type="radio" id="none" name="public_transport" value="0KM">
-                        <label for="none">I didn't</label><br>
-                        <input type="radio" id="50km" name="public_transport" value="50KM">
-                        <label for="50km">Less than 50 km</label><br>
-                        <input type="radio" id="50-150km" name="public_transport" value="50-100KM">
-                        <label for="50-100km">Between 50 and 100 km</label><br>
-                        <input type="radio" id="150km" name="public_transport" value="150KM">
-                        <label for="150km">Over 150km</label>
+                                <h3> How Far Did You Travel by Public Transport in the Last Year? </h3>
+                                <input type="radio" id="transport_none" name="public_transport" value="0" required>
+                                <label for="none">I didn't</label><br>
+                                <input type="radio" id="transport_low" name="public_transport" value="25">
+                                <label for="50km">Less than 50 km</label><br>
+                                <input type="radio" id="transport_mid" name="public_transport" value="100">
+                                <label for="50-100km">Between 50 and 100 km</label><br>
+                                <input type="radio" id="transport_high" name="public_transport" value="200">
+                                <label for="150km">Over 150km</label>
 
-                        <h3> How Often Did You Travel by Plane in the Last Year? </h3>
-                        <input type="radio" id="none" name="plane_travel" value="0">
-                        <label for="none">None</label><br>
-                        <input type="radio" id="1/2short" name="plane_travel" value="1/2">
-                        <label for="1/2short">1 or 2 Short Flights</label><br>
-                        <input type="radio" id="3short" name="plane_travel" value="3">
-                        <label for="3short">3 or More Short</label><br>
-                        <input type="radio" id="long" name="plane_travel" value="longHaul">
-                        <label for="long">Any Long-haul</label>
-                    </section>
-                    <section class="home_section">
-                        <h2> Home Energy </h2>
-                        <h3> How Do You Heat Your Home? </h3>
-                        <input type="radio" id="gas" name="heating_type" value="Gas">
-                        <label for="gas">Gas</label><br>
-                        <input type="radio" id="electricity" name="heating_type" value="Electricity">
-                        <label for="electricity">Electricity</label><br>
-                        <input type="radio" id="other" name="heating_type" value="Other">
-                        <label for="other">Other</label><br>
-                        <h3> How much Energy do You Use per Month? (Gas Heating) </h3>
-                        <input type="radio" id="low" name="energy_usage" value="Low">
-                        <label for="low">Low (Around 500 kWh) </label><br>
-                        <input type="radio" id="medium" name="energy_usage" value="Medium">
-                        <label for="medium">Medium (Around 860 kWh)</label><br>
-                        <input type="radio" id="high" name="energy_usage" value="High">
-                        <label for="high">High (Around 1250 kWh) </label><br>
-                        <h3> How much Energy do You Use per Month? (Electric Heating) </h3>
-                        <input type="radio" id="low" name="energy_usage" value="Low">
-                        <label for="low">Low (Around 133 kWh) </label><br>
-                        <input type="radio" id="medium" name="energy_usage" value="Medium">
-                        <label for="medium">Medium (Around 216 kWh)</label><br>
-                        <input type="radio" id="high" name="energy_usage" value="High">
-                        <label for="high">High (Around 326 kWh) </label><br>
-                    </section>
-                </div>
-                <div class="form_sections">
-                    <section class="food_section">
-                        <h2> Food </h2>
-                        <h3> What Does Your Diet Consist Of? </h3>
-                        <input type="radio" id="vegan" name="diet" value="Vegan">
-                        <label for="vegan">Vegan</label><br>
-                        <input type="radio" id="vegetarian" name="diet" value="Veg">
-                        <label for="vegetarian">Vegetarian</label><br>
-                        <input type="radio" id="somemeat" name="diet" value="SomeMeat">
-                        <label for="somemeat">Some Meat</label><br>
-                        <input type="radio" id="meat" name="diet" value="Meat">
-                        <label for="meat">Meat Daily</label>
-                    </section>
-                    <section class="lifestyle_section">
-                        <h2> Lifestyle </h2>
-                        <h3> How Often Do You Buy New Clothes per Month? </h3>
-                        <input type="radio" id="rarely" name="clothes" value="Rarely">
-                        <label for="rarely">Rarely</label><br>
-                        <input type="radio" id="sometimes" name="clothes" value="Sometimes">
-                        <label for="sometimes">Sometimes</label><br>
-                        <input type="radio" id="often" name="clothes" value="Often">
-                        <label for="often">Often</label><br>
-                        <h3> Do You Recycle? </h3>
-                        <input type="radio" id="always" name="recycle" value="Always">
-                        <label for="always">Always</label><br>
-                        <input type="radio" id="sometimes" name="recycle" value="Sometimes">
-                        <label for="sometimes">Sometimes</label><br>
-                        <input type="radio" id="never" name="recycle" value="Never">
-                        <label for="never">Never</label><br>
-                    </section>
-                </div>
-
-                <input type="submit" value="Calculate">
-            </form>
+                                <h3> How Often Did You Travel by Plane in the Last Year? </h3>
+                                <input type="radio" id="plane_none" name="plane_travel" value="0" required>
+                                <label for="none">None</label><br>
+                                <input type="radio" id="plane_short_few" name="plane_travel" value="1/2">
+                                <label for="1/2short">1 or 2 Short Flights</label><br>
+                                <input type="radio" id="plane_short_many" name="plane_travel" value="3">
+                                <label for="3short">3 or More Short</label><br>
+                                <input type="radio" id="plane_long" name="plane_travel" value="longHaul">
+                                <label for="long">Any Long-haul</label>
+                            </fieldset>
+                        </section>
+                        <section class="home_section">
+                            <fieldset>
+                                <legend>Home Energy</legend>
+                                <hr>
+                                <h3> How Do You Heat Your Home? </h3>
+                                <input type="radio" id="gas" name="heating_type" value="Gas" required>
+                                <label for="gas">Gas</label><br>
+                                <input type="radio" id="electricity" name="heating_type" value="Electricity">
+                                <label for="electricity">Electricity</label><br>
+                                <input type="radio" id="other" name="heating_type" value="Other">
+                                <label for="other">Other</label><br>
+                                <div id="gasHeating" style="display: none;">
+                                    <h3> How much Energy do You Use per Month? (Gas Heating) </h3>
+                                    <input type="radio" id="low" name="energy_usage" value="Low">
+                                    <label for="low">Low (Around 500 kWh) </label><br>
+                                    <input type="radio" id="medium" name="energy_usage" value="Medium">
+                                    <label for="medium">Medium (Around 860 kWh)</label><br>
+                                    <input type="radio" id="high" name="energy_usage" value="High">
+                                    <label for="high">High (Around 1250 kWh) </label><br>
+                                </div>
+                                <div id="electricHeating" style="display: none;">
+                                    <h3> How much Energy do You Use per Month? (Electric Heating) </h3>
+                                    <input type="radio" id="low" name="energy_usage" value="Low">
+                                    <label for="low">Low (Around 133 kWh) </label><br>
+                                    <input type="radio" id="medium" name="energy_usage" value="Medium">
+                                    <label for="medium">Medium (Around 216 kWh)</label><br>
+                                    <input type="radio" id="high" name="energy_usage" value="High">
+                                    <label for="high">High (Around 326 kWh) </label><br>
+                                </div>
+                            </fieldset>
+                        </section>
+                    </div>
+                    <div class="form_sections">
+                        <section class="food_section">
+                            <fieldset>
+                                <legend>Food</legend>
+                                <hr>
+                                <h3> What Does Your Diet Consist Of? </h3>
+                                <input type="radio" id="vegan" name="diet" value="Vegan" required>
+                                <label for="vegan">Vegan</label><br>
+                                <input type="radio" id="vegetarian" name="diet" value="Veg">
+                                <label for="vegetarian">Vegetarian</label><br>
+                                <input type="radio" id="somemeat" name="diet" value="SomeMeat">
+                                <label for="somemeat">Some Meat</label><br>
+                                <input type="radio" id="meat" name="diet" value="Meat">
+                                <label for="meat">Meat Daily</label>
+                            </fieldset>
+                        </section>
+                        <section class="lifestyle_section">
+                            <fieldset>
+                                <legend>Lifestyle</legend>
+                                <hr>
+                                <h3> How Often Do You Buy New Clothes per Month? </h3>
+                                <input type="radio" id="rarely" name="clothes" value="Rarely" required>
+                                <label for="rarely">Rarely</label><br>
+                                <input type="radio" id="sometimes" name="clothes" value="Sometimes">
+                                <label for="sometimes">Sometimes</label><br>
+                                <input type="radio" id="often" name="clothes" value="Often">
+                                <label for="often">Often</label><br>
+                                <h3> Do You Recycle? </h3>
+                                <input type="radio" id="always" name="recycle" value="Always" required>
+                                <label for="always">Always</label><br>
+                                <input type="radio" id="sometimes" name="recycle" value="Sometimes">
+                                <label for="sometimes">Sometimes</label><br>
+                                <input type="radio" id="never" name="recycle" value="Never">
+                                <label for="never">Never</label><br>
+                            </fieldset>
+                        </section>
+                    </div>
+                    <input type="submit" value="Calculate">
+                </form>
+            </div>
+            <div id="calcResult">
+            </div>
         </main>
         <footer>
             <hr>

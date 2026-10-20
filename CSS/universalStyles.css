@@ -2,11 +2,155 @@ body {
     background-color: #D3D2C7;
     font-family: 'Times New Roman', Times, serif;
     height: auto;
-   /* margin: 0; */
+    display: flex;
+    flex-direction: column;
+    margin: 0; 
+    /* setting height to 100% of height of browser window */
+    min-height: 100vh;
+}
+
+main {
+    /* tells main to grow into leftover space*/
+    flex: 1;
 }
 
 h2 {
-    font-size: 1.3em
+    font-size: 1.5em
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+li {
+    font-size: 1.125;
+}
+
+#links {
+    text-align: center;
+}
+
+#links a {
+    border: 1px solid black;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 20px;
+}
+
+.logButton {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.registerButton {
+    background-color: white;
+    color: black;
+}
+
+.emissionButton {
+    background-color: black;
+    color: aqua;
+}
+
+/* Emission Info Page Styling */
+.emission_info_container {
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: white;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.footprint_info,
+.solutions_info,
+.faq {
+    border: 1px, solid, black;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 10px;
+    background-color: #E5EBDD;
+}
+
+.footprint_info_header,
+.solutions_info_header,
+.faq_header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Adding a indicator to show clicking heading expands content */
+.footprint_info_header::after,
+.solutions_info_header::after,
+.faq_header::after {
+    content: " ▼";
+    font-size: 0.8em;
+    float: right;
+}
+
+.footprint_info_header::after,
+.solutions_info_header::after,
+.faq_header::after {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.footprint_info_content,
+.solutions_info_content,
+.faq_content {
+    display: none
+}
+
+.footprint_info_content.show,
+.solutions_info_content.show,
+.faq_content.show {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 15px 30px;
+}
+
+.footprint_info_content p,
+.solutions_info_content p,
+.faq_content p {
+    font-size: 18px;
+}
+
+.footprint_info_content ul,
+.solutions_info_content ul,
+.faq_content ul {
+    margin-left: 20px;
+    padding-left: 10px;
+}
+
+/* Image styling */
+.instaiconimg {
+    height: 20px;
+    width: auto;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.naturepic {
+    height: 400px;
+    width: auto;
+    vertical-align: middle;
+    margin: 10px;
+}
+
+.sapling_pic {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: 15px auto;
+
 }
 
 /* Across Pages CSS */
@@ -21,91 +165,138 @@ h2 {
 
 /* Navigation CSS */
 
-/* so navbar takes up length of page */
-.navflex {
-    width: auto;
-}
-
-.navflex a {
-    display: inline-block;
-    color: black;
+/* green title bar */
+.top_bar {
+    position: relative;
+    background-color: #238B45;
     text-align: center;
-    text-decoration: none;
-    font-size: 1.2em;
-    padding: 0.5em 1em;
+    padding: 0.6em 1em;
 }
 
+.brand {
+    color: white;
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+}
+
+/* navbar */
 .navflex ul {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;   /* never drop onto a second row */
+    overflow: hidden;    /* lets the JS detect when links don't fit */
     margin: 0;
     padding: 0;
     list-style: none;
     font-weight: bold;
-    overflow: hidden;
-    border: 1px solid;
     background-color: #779341;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
+
 
 .navflex li {
-    flex: 3;
+    flex: 1 1 auto;
     text-align: center;
-    border: 1px solid;
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.navflex li.active {
+.navflex li:last-child {
+    border-right: none;
+}
+
+/* whole tab is clickable, not just the text */
+.navflex a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 0.6em 1em;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+}
+
+.navflex li.active a,
+.navflex a:hover,
+.navflex a:focus-visible {
     background-color: darkgreen;
 }
 
-.navflex li:hover {
-    background-color: darkgreen;
-}
-
+/* hamburger button (hidden on bigger screens) */
 .nav_collapse {
-    background-color: #779341;
-    width: auto;
     display: none;
-    border: 1px solid;
+    position: absolute;
+    left: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 22px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.instaiconimg {
-    height: 20px;          
-    width: auto;
-    vertical-align: middle; 
-    margin-left: 8px;
+.nav_collapse span {
+    display: block;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
-/* Media Queries */
-/* Mobile/Smart Phones */
-@media screen and (max-width:480px){
+/* turns the three lines into an X when the menu is open */
+.nav_collapse[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+}
 
-    .header_container{
-        text-align: center;
-    }
+.nav_collapse[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
 
-    /* hides navbar on smaller screen */
-    .navflex {
-        display: none;
-    }
+.nav_collapse[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
 
-    /* reveals navbar */
-    .navflex.show {
-        display: block;
-    }
+/* Collapsed navbar: added by navbar.js when the links don't fit on one line */
+.nav_collapsed .brand {
+    font-size: 1.6em;
+}
 
-    /* changing the nav bar so its contents are spread vertical instead of horizontally */
-    .navflex ul {
-        flex-direction: column;
-    }
-    
-    .navflex li {
-        text-align: left;
-    }
+.nav_collapsed .nav_collapse {
+    display: flex;
+}
 
-    /* navbar is only collapsable on phone screens*/
-    .nav_collapse {
-        display: block;
-    }
+/* closed: menu is squashed to zero height and hidden */
+.nav_collapsed .navflex {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition: grid-template-rows 0.3s ease, visibility 0s 0.3s;
+}
+
+/* open: menu grows to its full height */
+.nav_collapsed .navflex.show {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    transition: grid-template-rows 0.3s ease, visibility 0s;
+}
+
+/* lets the list shrink to nothing inside the grid */
+.nav_collapsed .navflex ul {
+    min-height: 0;
+}
+
+.nav_collapsed .navflex ul {
+    flex-direction: column;
+}
+
+.nav_collapsed .navflex li {
+    text-align: left;
+    border-right: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 /* average IPad screen size */
@@ -115,4 +306,21 @@ h2 {
         text-align: center;
     }
     
+}
+
+@media screen and (max-width: 426px) {
+    .naturepic {
+        height: 200px;
+    }
+
+    .emission_info_container {
+        padding: 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav_collapsed .navflex,
+    .nav_collapse span {
+        transition: none;
+    }
 }
