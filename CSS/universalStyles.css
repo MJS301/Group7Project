@@ -36,6 +36,21 @@ h2 {
     color: aqua;
 }
 
+/* Image styling */
+.instaiconimg {
+    height: 20px;
+    width: auto;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.naturepic {
+    height: 400px;
+    width: auto;
+    vertical-align: middle;
+    margin: 10px;
+}
+
 /* Across Pages CSS */
 .header_container {
     text-align: center;
@@ -191,23 +206,15 @@ h2 {
     
 }
 
+@media screen and (max-width: 426px) {
+    .naturepic {
+        height: 200px;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .nav_collapsed .navflex,
     .nav_collapse span {
         transition: none;
     }
-}
-
-.instaiconimg {
-    height: 20px;
-    width: auto;
-    vertical-align: middle;
-    margin-left: 8px;
-}
-
-.naturepic {
-    height: 400px;
-    width: auto;
-    vertical-align: middle;
-    margin: 10px;
 }
