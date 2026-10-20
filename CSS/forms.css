@@ -84,8 +84,9 @@
     margin-bottom: 0.5em;
 }
 
-/* styling the success message on contact page */
-.success_message {
+/* styling the success and error messages on contact page */
+.success_message,
+.error_message {
     border: 1px solid black;
     width: 48%;
     text-align: center;
