@@ -231,12 +231,15 @@ textarea {
 /* Styling for activity form */
 /* activity container */
 .activityContainer{
+    border-radius: 20px;  
     background: #ffffff;
     padding: 30px;
-    border-radius: 0px;
     border-style: solid;
     border-width: 1px;
-    max-width: 420px;
+    max-width: 600px;   
+    width: 80%;          
+    min-height: 500px;   
+    margin: 60px auto;   
     width: 100%;
     margin: 0 auto;
 }
@@ -250,7 +253,8 @@ textarea {
 
 /* activity form styling */
 .activityForm {
-    margin-bottom: 20px;
+    margin-top: 80px;
+    margin-bottom: 50px;
 }
 
 /* activity form labels and inputs */
@@ -261,23 +265,37 @@ textarea {
 
 /* activity form inputs */
 .activityForm input {
+    border-radius: 20px;  
     width: 93%;
     padding: 14px;
     border: 1px solid #000000;
-    border-radius: 0px;
     font-size: 16px;
 }
 
 /* activity button styling */
 .activityButton{
+    margin-top: 20px;
     width: 100%;
     padding: 14px;
     background: #779341 ;
     color: #ffffff;
     border: none;
-    border-radius: 8px;
+    border-radius: 20px;  
     cursor: pointer;
     font-size: 18px;
+} 
+
+/* view records button styling */
+.activityRecordsButton{
+    display: block;         
+    box-sizing: border-box;
+    margin-top: 15px;        
+    text-align: center;
+    text-decoration: none;
+}
+
+.activityRecordsButton:hover {
+    text-decoration: underline;
 }
 
 /* activity button hover state */
@@ -285,6 +303,35 @@ textarea {
     text-decoration: underline;
 }
 
+/* message shown under the box */
+.activityMessage {
+    display: none;          
+    text-align: center;
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #006400;        
+}
+
+/* emission table */
+.emissionTable {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    border: 2px solid
+}
+
+.emissionTable th,
+.emissionTable td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #000000;
+}
+
+.emissionTable th {
+    background: #779341;
+    color: #ffffff;
+}
 
 /* Media Queries */
 /* Mobile/Smart Phones */

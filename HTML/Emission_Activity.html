@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="/CSS/forms.css">
         <!-- JS file which won't load after rest of page has that customises the navbar -->
         <script defer src="/JS_Files/navbar.js"></script>
-        <script src="/JS_Files/emission_activity.js"></script>
+        <script defer src="/JS_Files/emission_activity.js"></script>
     </head>
     <body>
         <header>
@@ -51,10 +51,12 @@
                 <h2>Emission Activity</h2>
                 <form>
                     <div class="activityForm">
-                        <label for="cardName">Emission Amount</label>
-                        <input type="text" id="cardName" placeholder="Amount" required>
+                        <label for="emissionAmount">Emission Amount</label>
+                        <input type="number" id="emissionAmount" placeholder="Amount" required>
                     </div>
-                    <button type="button" class="activityButton" onclick="addEmissionActivity()">Add emission amount</button>
+                    <button type="button" class="activityButton" onclick="addEmissionActivity(event)">Add emission amount</button>
+                    <a href="Emission_Menu.html" class="activityButton activityRecordsButton">View emission records</a>
+                    <p id="activityMessage" class="activityMessage">Added emission</p>
                 </form>
             </div>     
     </section>
