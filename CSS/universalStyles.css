@@ -2,11 +2,28 @@ body {
     background-color: #D3D2C7;
     font-family: 'Times New Roman', Times, serif;
     height: auto;
+    display: flex;
+    flex-direction: column;
     margin: 0; 
+    /* setting height to 100% of height of browser window */
+    min-height: 100vh;
+}
+
+main {
+    /* tells main to grow into leftover space*/
+    flex: 1;
 }
 
 h2 {
-    font-size: 1.3em
+    font-size: 1.5em
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+li {
+    font-size: 1.125;
 }
 
 #links {
@@ -41,7 +58,9 @@ h2 {
     border-radius: 10px;
     border: 1px solid black;
     background-color: white;
-    margin: 5px;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
 }
 
 .footprint_info,
@@ -54,16 +73,61 @@ h2 {
     background-color: #E5EBDD;
 }
 
+.footprint_info_header,
+.solutions_info_header,
+.faq_header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Adding a indicator to show clicking heading expands content */
+.footprint_info_header::after,
+.solutions_info_header::after,
+.faq_header::after {
+    content: " ▼";
+    font-size: 0.8em;
+    float: right;
+}
+
+.footprint_info_header::after,
+.solutions_info_header::after,
+.faq_header::after {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
 .footprint_info_content,
 .solutions_info_content,
 .faq_content {
-    display: none;
+    display: none
 }
 
 .footprint_info_content.show,
 .solutions_info_content.show,
 .faq_content.show {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 15px 30px;
+}
+
+.footprint_info_content p,
+.solutions_info_content p,
+.faq_content p {
+    font-size: 18px;
+}
+
+.footprint_info_content ul,
+.solutions_info_content ul,
+.faq_content ul {
+    margin-left: 20px;
+    padding-left: 10px;
 }
 
 /* Image styling */
@@ -79,6 +143,14 @@ h2 {
     width: auto;
     vertical-align: middle;
     margin: 10px;
+}
+
+.sapling_pic {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin: 15px auto;
+
 }
 
 /* Across Pages CSS */
@@ -239,6 +311,10 @@ h2 {
 @media screen and (max-width: 426px) {
     .naturepic {
         height: 200px;
+    }
+
+    .emission_info_container {
+        padding: 10px;
     }
 }
 

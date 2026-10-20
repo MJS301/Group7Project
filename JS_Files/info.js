@@ -2,7 +2,7 @@
 
 // headings are picked using the existing class names
 let headings = document.querySelectorAll(
-  ".footprint_info_header h2, .solutions_info_header h2, .faq_header h2"
+  ".footprint_info_header, .solutions_info_header, .faq_header"
 );
 
 for (let i = 0; i < headings.length; i++) {
@@ -30,12 +30,12 @@ function toggleSection(evt) {
   // closes every section first, so only one is open at a time
   for (let i = 0; i < headings.length; i++) {
     headings[i].setAttribute("aria-expanded", "false");
-    headings[i].parentElement.nextElementSibling.classList.remove("show");
+    headings[i].nextElementSibling.classList.remove("show");
   }
 
   // opens the clicked one, unless it was already open
   if (wasOpen === false) {
     clicked.setAttribute("aria-expanded", "true");
-    clicked.parentElement.nextElementSibling.classList.add("show");
+    clicked.nextElementSibling.classList.add("show");
   }
 }
