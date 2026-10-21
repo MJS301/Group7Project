@@ -26,6 +26,10 @@
     text-align: center;
 }
 
+#estimationMessage {
+    font-size: 13px;
+}
+
 #questionnaireSection legend {
     font-size: 15px;
     font-weight: bold;
