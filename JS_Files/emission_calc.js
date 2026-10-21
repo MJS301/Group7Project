@@ -10,7 +10,7 @@ const GAS_KG_PER_KWH = 0.182;
 const ELECTRIC_KG_PER_KWH = 0.131;
 
 // average of medium gas (860 kWh/month) and medium electric (216 kWh/month) use
-const OTHER_HEATING_KG = ((860 * GAS_KG_PER_KWH + 216 * ELECTRIC_KG_PER_KWH) / 2) * 12;
+const OTHER_HEATING_KG = ((860 * GAS_KG_PER_KWH + 216 * ELECTRIC_KG_PER_KWH) / 2) * 12; //=1109kg/year
 
 // simplified estimate of UK average based on the categories
 const AVERAGE_UK_CO2 = 6800
@@ -20,7 +20,7 @@ let form = document.getElementById("questionnaireForm");
 // run calculation when form is submitted
 form.addEventListener("submit", emissionCalcUpdate);
 
-// shows or hides section depending on delivery method selected
+// shows or hides section depending on heating method selected
 document.getElementById("gas").addEventListener("change", showGas)
 document.getElementById("electricity").addEventListener("change", showElectricity)
 document.getElementById("other").addEventListener("change", hideHeatingSections)
@@ -37,8 +37,17 @@ function getCheckedValue(radioBtnName) {
   return null
 }
 
+// Clears the energy usage answer
+function clearUsage(){
+  const usageBtns = document.getElementsByName("energy_usage");
+  for (let i = 0; i < usageBtns.length; i++) {
+    usageBtns[i].checked = false;
+  }
+}
+
 // show gas section in Carbon_Emission_Calculator.html
 function showGas(){
+  clearUsage();
   const gas = document.getElementById("gasHeating");
   const electricity = document.getElementById("electricHeating"); 
   gas.style.display = "block";
@@ -47,6 +56,7 @@ function showGas(){
 
 // shows electricity section in Carbon_Emission_Calculator.html
 function showElectricity(){
+  clearUsage();
   const gas = document.getElementById("gasHeating");
   const electricity = document.getElementById("electricHeating"); 
   gas.style.display = "none";
@@ -55,6 +65,7 @@ function showElectricity(){
 
 // hides both gas and electric sections when other is selected
 function hideHeatingSections(){
+  clearUsage();
   const gas = document.getElementById("gasHeating");
   const electricity = document.getElementById("electricHeating"); 
   gas.style.display = "none";

@@ -38,11 +38,6 @@
                 </ul>
 
             </nav>
-            
-            <section class="header_container">
-                <h1></h1>
-            </section>
-
         </header>
         <main>
             <div id="quizInfo">
@@ -55,6 +50,7 @@
             <div id="questionnaireSection">
                 <form id="questionnaireForm" action="#">
                     <div class="form_sections">
+                        <!-- Transport - car and public transport values are based on weekly km while plane travel is yearly -->
                         <section class="transport_section">
                             <fieldset>
                                 <legend>Transport</legend>
@@ -80,7 +76,7 @@
                                 <label for="transport_mid">Between 50 and 150 km</label><br>
                                 <input type="radio" id="transport_high" name="public_transport" value="225">
                                 <label for="transport_high">Between 150 and 300 km</label><br>
-                                <input type="radio" id="transport_vhigh" name="car_travel" value="400">
+                                <input type="radio" id="transport_vhigh" name="public_transport" value="400">
                                 <label for="transport_vhigh">Over 300 km</label>
 
                                 <h3> How Often Did You Travel by Plane in the Last Year? </h3>
@@ -94,6 +90,7 @@
                                 <label for="plane_long">Any Long-haul</label>
                             </fieldset>
                         </section>
+                        <!-- Energy - users choose between gas, electricity and other with the first two expanding sections where the user can select usage -->
                         <section class="home_section">
                             <fieldset>
                                 <legend>Home Energy</legend>
@@ -105,6 +102,7 @@
                                 <label for="electricity">Electricity</label><br>
                                 <input type="radio" id="other" name="heating_type" value="Other">
                                 <label for="other">Other</label><br>
+                                <!-- Hidden until Gas is selected -->
                                 <div id="gasHeating" style="display: none;">
                                     <h3> How much Energy do You Use per Month? (Gas Heating) </h3>
                                     <input type="radio" id="low" name="energy_usage" value="Low">
@@ -114,6 +112,7 @@
                                     <input type="radio" id="high" name="energy_usage" value="High">
                                     <label for="high">High (Around 1250 kWh) </label><br>
                                 </div>
+                                <!-- Hidden until Electricity is selected -->
                                 <div id="electricHeating" style="display: none;">
                                     <h3> How much Energy do You Use per Month? (Electric Heating) </h3>
                                     <input type="radio" id="low" name="energy_usage" value="Low">
@@ -127,6 +126,7 @@
                         </section>
                     </div>
                     <div class="form_sections">
+                        <!-- Food - Users chose their primary diet -->
                         <section class="food_section">
                             <fieldset>
                                 <legend>Food</legend>
@@ -142,6 +142,7 @@
                                 <label for="meat">Meat Daily</label>
                             </fieldset>
                         </section>
+                        <!-- Lifestyle - Users choose how often they buy clothes and if they recycle or not -->
                         <section class="lifestyle_section">
                             <fieldset>
                                 <legend>Lifestyle</legend>
@@ -168,6 +169,7 @@
                     <p id="estimationMessage"> Questionnaire acts as an rough estimate not a guaranteed estimation </p>
                 </form>
             </div>
+            <!-- Where result is displayed once its calculated -->
             <div id="calcResult">
             </div>
         </main>

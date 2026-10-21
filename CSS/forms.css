@@ -238,11 +238,15 @@ textarea {
 
     /* changing display type when on smaller screen */
     .form_sections {
-        display: block;
+        grid-template-columns: 1fr;
     }
 
     #contactForm,
     .success_message {
         width: 80%;
+    }
+
+    #questionnaireForm input[type=submit] {
+        width: 100%;
     }
 }
