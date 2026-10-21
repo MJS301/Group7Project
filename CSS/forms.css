@@ -26,6 +26,10 @@
     text-align: center;
 }
 
+#estimationMessage {
+    font-size: 13px;
+}
+
 #questionnaireSection legend {
     font-size: 15px;
     font-weight: bold;
@@ -84,8 +88,9 @@
     margin-bottom: 0.5em;
 }
 
-/* styling the success message on contact page */
-.success_message {
+/* styling the success and error messages on contact page */
+.success_message,
+.error_message {
     border: 1px solid black;
     width: 48%;
     text-align: center;
@@ -233,11 +238,15 @@ textarea {
 
     /* changing display type when on smaller screen */
     .form_sections {
-        display: block;
+        grid-template-columns: 1fr;
     }
 
     #contactForm,
     .success_message {
         width: 80%;
+    }
+
+    #questionnaireForm input[type=submit] {
+        width: 100%;
     }
 }

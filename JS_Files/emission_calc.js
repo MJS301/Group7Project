@@ -1,19 +1,29 @@
 'use strict';
 
-// Placeholder emission factors
+// 0.17 is the average for petrol and diesels
 const CAR_KG_PER_KM = 0.17;
+// 0.05 per passenger
 const PTRANSPORT_KG_PER_KM = 0.05;
-const GAS_KG_PER_KWH = 0.18;
-const ELECTRIC_KG_PER_KWH = 0.2;
+
+// 0.182 and 0.131 are the gas and electric values according to https://carbonrecycling.co.uk/guides/conversion-factors-2026
+const GAS_KG_PER_KWH = 0.182;
+const ELECTRIC_KG_PER_KWH = 0.131;
+
+// average of medium gas (860 kWh/month) and medium electric (216 kWh/month) use
+const OTHER_HEATING_KG = ((860 * GAS_KG_PER_KWH + 216 * ELECTRIC_KG_PER_KWH) / 2) * 12; //=1109kg/year
+
+// simplified estimate of UK average based on the categories
+const AVERAGE_UK_CO2 = 6800
 
 let form = document.getElementById("questionnaireForm");
 
 // run calculation when form is submitted
 form.addEventListener("submit", emissionCalcUpdate);
 
-// shows or hides section depending on delivery method selected
+// shows or hides section depending on heating method selected
 document.getElementById("gas").addEventListener("change", showGas)
 document.getElementById("electricity").addEventListener("change", showElectricity)
+document.getElementById("other").addEventListener("change", hideHeatingSections)
 
 function getCheckedValue(radioBtnName) {
   // returns value of radio button checked
@@ -27,8 +37,17 @@ function getCheckedValue(radioBtnName) {
   return null
 }
 
+// Clears the energy usage answer
+function clearUsage(){
+  const usageBtns = document.getElementsByName("energy_usage");
+  for (let i = 0; i < usageBtns.length; i++) {
+    usageBtns[i].checked = false;
+  }
+}
+
 // show gas section in Carbon_Emission_Calculator.html
 function showGas(){
+  clearUsage();
   const gas = document.getElementById("gasHeating");
   const electricity = document.getElementById("electricHeating"); 
   gas.style.display = "block";
@@ -37,10 +56,20 @@ function showGas(){
 
 // shows electricity section in Carbon_Emission_Calculator.html
 function showElectricity(){
+  clearUsage();
   const gas = document.getElementById("gasHeating");
   const electricity = document.getElementById("electricHeating"); 
   gas.style.display = "none";
   electricity.style.display = "block";
+}
+
+// hides both gas and electric sections when other is selected
+function hideHeatingSections(){
+  clearUsage();
+  const gas = document.getElementById("gasHeating");
+  const electricity = document.getElementById("electricHeating"); 
+  gas.style.display = "none";
+  electricity.style.display = "none";
 }
 
 function emissionCalcUpdate(evt) {
@@ -103,9 +132,11 @@ function calculateEnergy(heating, usage){
     }
     return kwh * 12 * ELECTRIC_KG_PER_KWH;
   } else if (heating === "Other") {
-    // placeholder average for other heating types
-    return 1000;
+    // since there is no other choices, uses average of gas and electric
+    return OTHER_HEATING_KG;
   }
+  // when nothing is selected
+  return 0;
 }
 
 //food
@@ -163,6 +194,19 @@ function emissionCalculator(car, transport, plane, heating, usage, diet, clothes
   emissionTotalDisplay.textContent = "Estimated Total: " + total.toFixed(0) + " kg CO2 per year";
   emissionTotalDisplay.classList.add("total");
 
+  // comparison with UK average
+  let comparisonDisplay = document.createElement("p");
+  let diff = total - AVERAGE_UK_CO2;
+  let percent = Math.abs(diff / AVERAGE_UK_CO2 * 100).toFixed(0);
+
+  // displaying message if user is above or below UK average
+  if (diff > 0) {
+    comparisonDisplay.textContent = "That's " + percent + "% above the UK average of " + AVERAGE_UK_CO2 + " kg per year.";
+  } else {
+    comparisonDisplay.textContent = "That's " + percent + "% below the UK average of " + AVERAGE_UK_CO2 + " kg per year.";
+  }
+  comparisonDisplay.classList.add("result_details");
+
   let transportDisplay = document.createElement("p");
   transportDisplay.textContent = "Transport: " + transportTotal.toFixed(0) + " kg CO2 per Year";
   transportDisplay.classList.add("result_details");
@@ -182,6 +226,7 @@ function emissionCalculator(car, transport, plane, heating, usage, diet, clothes
   // appending attributes to result container
   resultContainer.appendChild(resultHeading);
   resultContainer.appendChild(emissionTotalDisplay);
+  resultContainer.appendChild(comparisonDisplay);
   resultContainer.appendChild(transportDisplay);
   resultContainer.appendChild(energyDisplay);
   resultContainer.appendChild(foodDisplay);
