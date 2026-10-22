@@ -27,11 +27,13 @@ function startEdit(index) {
 function saveEdit(index) {
     const newAmount = parseFloat(document.getElementById("editInput").value);
 
+    // if the new amount is not a number or less than or equal to 0 show an alert to user and return 
     if (isNaN(newAmount) || newAmount <= 0) {
         alert("Please enter a valid emission amount.");
         return;
     }
 
+    // update the emission amount in the array and reset editing index
     emissions[index] = newAmount;
     editingIndex = null;
     renderTable();
@@ -45,60 +47,51 @@ function cancelEdit() {
 
 // function to make a button element in the table 
 function makeButton(text, className, onClick) {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.textContent = text;
-    btn.className = className;
-    btn.addEventListener("click", onClick);
-    return btn;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = text;
+    button.className = className;
+    button.addEventListener("click", onClick);
+    return button;
 }
 
-// function to render the emission table
+// function to render the table of emissions
 function renderTable() {
     const body = document.getElementById("emissionTableBody");
     body.innerHTML = "";
 
-    // if there are no emissions show a message
+    // if no emissions has been entered then show message 
     if (emissions.length === 0) {
-        const row = body.insertRow();
-        const cell = row.insertCell();
+        const cell = body.insertRow().insertCell();
         cell.colSpan = 3;
         cell.textContent = "No emissions added yet.";
-        cell.className = "emptyRow";
     }
 
-    // for each emission amount, create a row in the table
+    // loops through each emissions entry from the sample array and adds them to the table 
     emissions.forEach((amount, i) => {
         const row = body.insertRow();
         row.insertCell().textContent = i + 1;
-
         const amountCell = row.insertCell();
         const actionsCell = row.insertCell();
 
-        // if index is the one being edited then show input field and save/cancel buttons
+        // if the index equals the editing index then show input box and save and cancel button otherwise show the edit and remove buttons as default
         if (i === editingIndex) {
-            const editInput = document.createElement("input");
-            editInput.type = "number";
-            editInput.id = "editInput";
-            editInput.value = amount;
-            editInput.min = "0";
-            editInput.step = "any";
-            editInput.className = "editInput";
-            amountCell.appendChild(editInput);
-
-            actionsCell.appendChild(makeButton("Save", "tableButton saveButton", () => saveEdit(i)));
-            actionsCell.appendChild(makeButton("Cancel", "tableButton", cancelEdit));
+            amountCell.innerHTML = `<input type="number" id="editInput" class="editInput" value="${amount}" min="0" step="any">`;
+            actionsCell.append(
+                makeButton("Save", "tableButton saveButton", () => saveEdit(i)),
+                makeButton("Cancel", "tableButton", cancelEdit)
+            );
         } else {
             amountCell.textContent = amount;
-
-            actionsCell.appendChild(makeButton("Edit", "tableButton", () => startEdit(i)));
-            actionsCell.appendChild(makeButton("Remove", "tableButton removeButton", () => removeEmission(i)));
+            actionsCell.append(
+                makeButton("Edit", "tableButton", () => startEdit(i)),
+                makeButton("Remove", "tableButton removeButton", () => removeEmission(i))
+            );
         }
     });
 
-    // calculate and display the total emissions
     const total = emissions.reduce((sum, value) => sum + value, 0);
-    document.getElementById("emissionTotal").textContent = total.toFixed(2);
+    document.getElementById("emissionTotal").textContent = total;
 }
 
 // create table when the page loads

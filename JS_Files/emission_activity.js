@@ -6,7 +6,7 @@ function addEmissionActivity(event) {
     const message = document.getElementById("activityMessage");
     const amount = Number(input.value);
 
-    // validate the input
+    // if the amount is not a number or less than or equal to 0 show an alert to user and return
     if (isNaN(amount) || amount <= 0) {
         message.textContent = "Please enter a valid emission amount.";
         message.style.display = "block";
@@ -14,13 +14,13 @@ function addEmissionActivity(event) {
     }
 
 
-    // gives user an message and hides it
-    message.textContent = `Added emission: ${amount}.`;
+    // gives user an message 
+    message.textContent = `Added emission: ${amount}`;
     message.style.display = "block";
     input.value = "";
 }   
 
-// hides the message
+// hides the message if the user starts typing in the input box 
 document.getElementById("emissionAmount").addEventListener("input", function () {
     document.getElementById("activityMessage").style.display = "none";
 });
