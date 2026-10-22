@@ -147,3 +147,38 @@
         transition: none;
     }
 }
+
+.password_wrapper {
+    position: relative;
+    margin-bottom: 1rem; /* match whatever gap your other inputs have */
+}
+
+.password_wrapper input {
+    width: 100%;
+    margin: 0;               /* stops the input making the wrapper taller */
+    padding-right: 4.5rem;
+    box-sizing: border-box;
+}
+
+.toggle_password {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;               /* in case forms.css styles all buttons */
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    text-decoration: underline;
+    line-height: 1;
+}
+
+.match_message {
+    font-size: 0.9rem;
+    margin: 0.25rem 0 0;
+    min-height: 1.2em; /* stops the layout jumping */
+}
+.match_message.match    { color: #1a7f37; }
+.match_message.no_match { color: #c62828; }
