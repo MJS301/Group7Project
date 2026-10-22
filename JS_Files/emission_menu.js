@@ -1,5 +1,5 @@
 let emissions = [];        // the list of emission amounts
-let editingIndex = null;   // which row is being edited (null = none)
+let editingIndex = null;   // set intial editing index to null so it can be switched on and off when a user clicks edit button
 
 // example data for testing
 emissions = [3,4,123,5,12,451,142,34,234,2,432]

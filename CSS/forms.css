@@ -285,6 +285,13 @@ textarea {
     font-size: 18px;
 } 
 
+/* activity form labels styling */
+.activityForm label {
+    display: block;
+    margin-top: 12px;  
+    margin-bottom: 4px;
+}
+
 /* view records button styling */
 .activityRecordsButton{
     display: block;         
