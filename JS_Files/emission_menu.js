@@ -1,7 +1,7 @@
 let emissions = [];        // the list of emission amounts
 let editingIndex = null;   // set intial editing index to null so it can be switched on and off when a user clicks edit button
 
-// example data for testing
+// data for testing the table, will be removed when the database is connected to the table and the user can add their own emissions
 emissions = [3,4,123,5,12,451,142,34,234,2,432]
 
 // function to add a new emission amount
